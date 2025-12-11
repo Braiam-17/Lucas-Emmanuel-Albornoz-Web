@@ -6,15 +6,15 @@
 
   &__background {
     @include absolute-fill;
-    background-image: url("/public/Lucas perfil/entrada-abogado.jpg"); // Reemplaza con tu imagen
+    background-image: url("/public/Lucas perfil/entrada-abogado.jpg");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 
-    // Si no tienes imagen, usa esto como placeholder:
-    // background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    // Solo fixed en desktop
+    @include responsive("md") {
+      background-attachment: fixed;
+    }
   }
-
   &__overlay {
     @include absolute-fill;
     background: linear-gradient(
@@ -159,5 +159,10 @@
     &__btn {
       width: 100%;
     }
+  }
+}
+@media (max-width: $breakpoint-md) {
+  .hero {
+    padding-top: 90px;
   }
 }

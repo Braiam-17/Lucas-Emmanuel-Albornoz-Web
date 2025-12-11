@@ -1,11 +1,27 @@
 .header {
+  position: fixed;
+  top: -140px; // oculto al inicio
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  transition: top 0.3s ease, background-color 0.3s ease,
+    backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+
+  &--scrolled {
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Topbar */
   &__topbar {
     background-color: rgba(26, 26, 46, 0.95);
     padding: $spacing-xs 0;
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.8);
 
-    @include responsive("md-down") {
+    @media (max-width: $breakpoint-md) {
       display: none;
     }
   }
@@ -32,31 +48,14 @@
     }
   }
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 50;
-  @include transition(background-color, backdrop-filter, box-shadow);
-  margin-top: 2.5rem;
-
-  @include responsive("md-down") {
-    margin-top: 0;
-  }
-
-  &--scrolled {
-    background-color: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    margin-top: 0;
-  }
-
+  /* NAV */
   &__nav {
     @include flex-between;
     padding-top: $spacing-md;
     padding-bottom: $spacing-md;
   }
 
+  /* LOGO */
   &__logo {
     display: flex;
     align-items: center;
@@ -95,6 +94,7 @@
     }
   }
 
+  /* MENÚ ESCRITORIO */
   &__menu {
     list-style: none;
 
@@ -126,6 +126,7 @@
     }
   }
 
+  /* LINKS */
   &__link {
     @include button-reset;
     font-size: 0.9375rem;
@@ -179,6 +180,7 @@
     }
   }
 
+  /* CTA */
   &__cta {
     @include button-reset;
     padding: $spacing-sm $spacing-xl;
@@ -206,6 +208,7 @@
     }
   }
 
+  /* MOBILE TOGGLE */
   &__toggle {
     @include button-reset;
     color: $color-secondary;
