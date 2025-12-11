@@ -12,7 +12,16 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="footer__copyright">
-            © 2025 Desarrollado por MAVE DIGITAL. Todos los derechos reservados.
+            © 2025 Desarrollado por{" "}
+            <a
+              href="https://www.instagram.com/mavedigital_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__link"
+            >
+              MAVE DIGITAL
+            </a>
+            . Todos los derechos reservados.
           </div>
         </div>
       </div>

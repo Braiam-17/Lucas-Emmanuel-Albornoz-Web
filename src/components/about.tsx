@@ -4,10 +4,10 @@ const About: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "/Lucas perfil/lucas5.jpg",
-    "/Lucas perfil/lucas2.jpg",
-    "/Lucas perfil/lucas5.jpg",
-    "/Lucas perfil/lucas1.jpg",
+    `${import.meta.env.BASE_URL}Lucas perfil/lucas5.jpg`,
+    `${import.meta.env.BASE_URL}Lucas perfil/lucas2.jpg`,
+    `${import.meta.env.BASE_URL}Lucas perfil/lucas5.jpg`,
+    `${import.meta.env.BASE_URL}Lucas perfil/lucas1.jpg`,
   ];
 
   const nextImage = () => {

@@ -8,10 +8,10 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado/23.jpg",
-        "/post feed Ig Abogado/24.jpg",
-        "/post feed Ig Abogado/25.jpg",
-        "/post feed Ig Abogado/26.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado/23.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado/24.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado/25.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado/26.jpg`,
       ],
     },
     {
@@ -19,9 +19,9 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado (1)/31.jpg",
-        "/post feed Ig Abogado (1)/32.jpg",
-        "/post feed Ig Abogado (1)/33.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (1)/31.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (1)/32.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (1)/33.jpg`,
       ],
     },
     {
@@ -29,9 +29,9 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado (2)/34.jpg",
-        "/post feed Ig Abogado (2)/35.jpg",
-        "/post feed Ig Abogado (2)/36.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (2)/34.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (2)/35.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (2)/36.jpg`,
       ],
     },
     {
@@ -39,11 +39,11 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado (3)/43.jpg",
-        "/post feed Ig Abogado (3)/44.jpg",
-        "/post feed Ig Abogado (3)/45.jpg",
-        "/post feed Ig Abogado (3)/46.jpg",
-        "/post feed Ig Abogado (3)/47.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (3)/43.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (3)/44.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (3)/45.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (3)/46.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (3)/47.jpg`,
       ],
     },
     {
@@ -51,11 +51,11 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado (4)/49.jpg",
-        "/post feed Ig Abogado (4)/50.jpg",
-        "/post feed Ig Abogado (4)/51.jpg",
-        "/post feed Ig Abogado (4)/52.jpg",
-        "/post feed Ig Abogado (4)/53.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (4)/49.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (4)/50.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (4)/51.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (4)/52.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (4)/53.jpg`,
       ],
     },
     {
@@ -63,10 +63,10 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado (5)/64.jpg",
-        "/post feed Ig Abogado (5)/65.jpg",
-        "/post feed Ig Abogado (5)/66.jpg",
-        "/post feed Ig Abogado (5)/67.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (5)/64.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (5)/65.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (5)/66.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (5)/67.jpg`,
       ],
     },
     {
@@ -74,10 +74,10 @@ const Projects: React.FC = () => {
       category: "",
       location: "¡Contactame!",
       images: [
-        "/post feed Ig Abogado (6)/86.jpg",
-        "/post feed Ig Abogado (6)/87.jpg",
-        "/post feed Ig Abogado (6)/88.jpg",
-        "/post feed Ig Abogado (6)/89.jpg",
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (6)/86.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (6)/87.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (6)/88.jpg`,
+        `${import.meta.env.BASE_URL}post feed Ig Abogado (6)/89.jpg`,
       ],
     },
   ];
