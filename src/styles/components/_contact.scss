@@ -1,0 +1,470 @@
+.contact {
+  padding: $spacing-2xl 0;
+  background-color: $color-gray-light;
+
+  @include responsive("md") {
+    padding: $spacing-3xl 0;
+  }
+
+  @include responsive("lg") {
+    padding: calc($spacing-3xl * 1.5) 0;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+    padding: 0 $spacing-md;
+
+    @include responsive("md") {
+      margin-bottom: $spacing-3xl;
+    }
+  }
+
+  &__title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: $font-weight-light;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+
+    &-bold {
+      font-weight: $font-weight-semibold;
+      display: block;
+
+      @include responsive("sm") {
+        display: inline;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: $font-weight-light;
+    color: $color-text-light;
+    max-width: 40rem;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include responsive("md") {
+      gap: $spacing-2xl;
+      padding: 0 $spacing-lg;
+    }
+
+    @include responsive("lg") {
+      grid-template-columns: 2fr 3fr;
+      gap: $spacing-3xl;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+
+    @include responsive("lg") {
+      gap: $spacing-2xl;
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-md;
+      padding: $spacing-sm;
+      transition: transform $transition-base;
+
+      @include responsive("md") {
+        gap: $spacing-lg;
+        padding: $spacing-md;
+      }
+
+      &:hover {
+        transform: translateX(0.25rem);
+      }
+    }
+
+    &-icon {
+      color: $color-primary;
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+      transition: color $transition-base;
+
+      .contact__info-item:hover & {
+        color: lighten($color-primary, 20%);
+      }
+    }
+
+    &-title {
+      font-size: clamp(0.875rem, 2vw, 1.125rem);
+      font-weight: $font-weight-semibold;
+      letter-spacing: 0.05em;
+      margin-bottom: $spacing-xs;
+      color: $color-text;
+    }
+
+    &-text {
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      font-weight: $font-weight-light;
+      color: $color-text-light;
+      line-height: 1.6;
+    }
+  }
+
+  &__social {
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-gray-medium;
+
+    @include responsive("md") {
+      padding-top: $spacing-xl;
+    }
+
+    &-title {
+      font-size: clamp(0.875rem, 2vw, 1.125rem);
+      font-weight: $font-weight-semibold;
+      letter-spacing: 0.05em;
+      margin-bottom: $spacing-md;
+      color: $color-text;
+    }
+
+    &-icons {
+      display: flex;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+
+      @include responsive("md") {
+        gap: $spacing-md;
+      }
+    }
+
+    &-icon {
+      @include button-reset;
+      width: 2.75rem;
+      height: 2.75rem;
+      border: 2px solid $color-gray-medium;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all $transition-base;
+      position: relative;
+      overflow: hidden;
+
+      @include responsive("md") {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      // Efecto de fondo en hover
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: $color-primary;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all $transition-base;
+        z-index: 0;
+      }
+
+      svg {
+        position: relative;
+        z-index: 1;
+        transition: color $transition-base;
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: $color-primary;
+        transform: translateY(-0.25rem);
+
+        &::before {
+          width: 100%;
+          height: 100%;
+        }
+
+        svg {
+          color: $color-secondary;
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__form-wrapper {
+    background-color: $color-secondary;
+    padding: $spacing-lg;
+    box-shadow: $shadow-sm;
+    position: relative;
+
+    @include responsive("md") {
+      padding: $spacing-xl;
+    }
+
+    @include responsive("lg") {
+      padding: $spacing-2xl;
+    }
+  }
+
+  &__success {
+    background-color: rgba($color-success, 0.1);
+    border: 1px solid rgba($color-success, 0.3);
+    border-left: 4px solid $color-success;
+    color: darken($color-success, 20%);
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+    font-size: clamp(0.813rem, 2vw, 0.875rem);
+    border-radius: 4px;
+    animation: slideIn $transition-base;
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    @include responsive("md") {
+      gap: $spacing-xl;
+    }
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &__label {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.1em;
+    color: $color-text;
+    margin-bottom: $spacing-sm;
+    transition: color $transition-base;
+
+    .contact__form-group:focus-within & {
+      color: $color-primary;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-bottom: 2px solid $color-gray-medium;
+    background-color: transparent;
+    font-family: $font-family-base;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: $color-text;
+    outline: none;
+    transition: all $transition-base;
+
+    @include responsive("md") {
+      padding: $spacing-md $spacing-lg;
+    }
+
+    &::placeholder {
+      color: $color-text-lighter;
+      transition: opacity $transition-base;
+    }
+
+    &:focus {
+      border-bottom-color: $color-primary;
+      box-shadow: 0 1px 0 0 rgba($color-primary, 0.2);
+
+      &::placeholder {
+        opacity: 0.5;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba($color-primary, 0.2);
+      outline-offset: 2px;
+    }
+
+    &--error {
+      border-bottom-color: $color-error;
+      animation: shake $transition-base;
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-0.5rem);
+        }
+        75% {
+          transform: translateX(0.5rem);
+        }
+      }
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 6rem;
+    line-height: 1.6;
+
+    @include responsive("md") {
+      min-height: 8rem;
+    }
+  }
+
+  &__error {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    color: $color-error;
+    margin-top: $spacing-xs;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    animation: fadeIn $transition-fast;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-0.25rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &::before {
+      content: "⚠";
+      font-size: 0.875rem;
+    }
+  }
+
+  &__button {
+    @include button-reset;
+    width: 100%;
+    background-color: $color-primary;
+    color: $color-secondary;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.15em;
+    padding: $spacing-md $spacing-lg;
+    margin-top: $spacing-md;
+    font-size: clamp(0.813rem, 2vw, 0.875rem);
+    transition: all $transition-base;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include responsive("md") {
+      padding: $spacing-lg $spacing-xl;
+      margin-top: $spacing-lg;
+    }
+
+    // Efecto de brillo en hover
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba($color-secondary, 0.2),
+        transparent
+      );
+      transition: left $transition-slow;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: lighten($color-primary, 10%);
+      transform: translateY(-0.125rem);
+      box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba($color-primary, 0.5);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      background-color: $color-gray-medium;
+      cursor: not-allowed;
+      transform: none;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// Media query para reducir movimiento si el usuario lo prefiere
+@media (prefers-reduced-motion: reduce) {
+  .contact {
+    &__info-item:hover {
+      transform: none;
+    }
+
+    &__social-icon:hover {
+      transform: none;
+    }
+
+    &__button::before {
+      display: none;
+    }
+
+    &__success,
+    &__error,
+    &__input--error {
+      animation: none;
+    }
+  }
+}
+
+// Mejoras para modo oscuro (si lo implementas en el futuro)
+@media (prefers-color-scheme: dark) {
+  .contact {
+    &__form-wrapper {
+      box-shadow: $shadow-md;
+    }
+  }
+}

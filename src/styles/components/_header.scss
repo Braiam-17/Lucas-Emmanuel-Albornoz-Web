@@ -1,0 +1,217 @@
+.header {
+  &__topbar {
+    background-color: rgba(26, 26, 46, 0.95);
+    padding: $spacing-xs 0;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+
+    @include responsive("md-down") {
+      display: none;
+    }
+  }
+
+  &__topbar-content {
+    @include flex-center;
+  }
+
+  &__contact-info {
+    display: flex;
+    gap: $spacing-xl;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: #c9a961;
+    }
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  @include transition(background-color, backdrop-filter, box-shadow);
+  margin-top: 2.5rem;
+
+  @include responsive("md-down") {
+    margin-top: 0;
+  }
+
+  &--scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+  }
+
+  &__nav {
+    @include flex-between;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    color: $color-secondary;
+
+    &-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #c9a961 0%, #b8984a 100%);
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: $font-weight-bold;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-name {
+      font-size: 1.125rem;
+      font-weight: $font-weight-regular;
+      letter-spacing: 0.05em;
+    }
+
+    &-title {
+      font-size: 0.75rem;
+      font-weight: $font-weight-bold;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__menu {
+    list-style: none;
+
+    &--desktop {
+      display: none;
+      gap: $spacing-2xl;
+
+      @include responsive("lg") {
+        display: flex;
+      }
+    }
+
+    &--mobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+      ul {
+        list-style: none;
+        padding: $spacing-lg 0;
+      }
+
+      @include responsive("lg") {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    @include button-reset;
+    font-size: 0.9375rem;
+    font-weight: $font-weight-regular;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+    @include transition(color);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c9a961;
+      @include transition(width);
+    }
+
+    &:hover {
+      color: $color-secondary;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &--active {
+      color: $color-secondary;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &-mobile {
+      @include button-reset;
+      width: 100%;
+      text-align: left;
+      padding: $spacing-md $spacing-xl;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.125rem;
+      letter-spacing: 0.05em;
+      @include transition(color, background-color);
+
+      &:hover {
+        color: #c9a961;
+        background-color: rgba(201, 169, 97, 0.1);
+      }
+    }
+  }
+
+  &__cta {
+    @include button-reset;
+    padding: $spacing-sm $spacing-xl;
+    background: linear-gradient(135deg, #c9a961 0%, #b8984a 100%);
+    color: #1a1a1a;
+    font-size: 0.9375rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    @include transition(all);
+    display: none;
+
+    @include responsive("lg") {
+      display: block;
+    }
+
+    &:hover {
+      background: linear-gradient(135deg, #d4b874 0%, #c9a961 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__toggle {
+    @include button-reset;
+    color: $color-secondary;
+
+    @include responsive("lg") {
+      display: none;
+    }
+  }
+}

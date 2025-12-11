@@ -1,0 +1,47 @@
+.footer {
+  background-color: $color-primary;
+  color: $color-secondary;
+  padding: $spacing-xl 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+
+    @include responsive("md") {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__brand {
+    text-align: center;
+
+    @include responsive("md") {
+      text-align: left;
+    }
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: $font-weight-light;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-xs;
+
+    &-bold {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  &__tagline {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &__copyright {
+    text-align: center;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}

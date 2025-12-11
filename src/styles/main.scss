@@ -1,0 +1,54 @@
+@import "variables";
+@import "mixins";
+@import "components/header";
+@import "components/hero";
+@import "components/services";
+@import "components/projects";
+@import "components/about";
+@import "components/contact";
+@import "components/footer";
+
+// Reset y base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-regular;
+  line-height: 1.6;
+  color: $color-text;
+  background-color: $color-secondary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  @include container;
+}
+
+// Utilities
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

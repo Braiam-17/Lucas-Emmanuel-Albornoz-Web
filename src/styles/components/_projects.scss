@@ -1,0 +1,596 @@
+.projects {
+  padding: $spacing-3xl 0;
+  background: linear-gradient(
+    180deg,
+    $color-gray-light 0%,
+    rgba($color-gray-light, 0.5) 100%
+  );
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: $font-weight-light;
+    letter-spacing: 0.1em;
+    margin-bottom: $spacing-md;
+    color: $color-text;
+
+    @include responsive("md") {
+      font-size: 3rem;
+    }
+
+    &-bold {
+      font-weight: $font-weight-bold;
+      color: $color-primary;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    font-weight: $font-weight-light;
+    color: $color-text-light;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    max-width: 87.5rem;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include responsive("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive("lg") {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $spacing-xl;
+    }
+  }
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #0a0a0a;
+  border-radius: 20px;
+  padding-bottom: 125%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+    .project-card__overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.3) 60%,
+        transparent 100%
+      );
+    }
+
+    .project-card__title {
+      letter-spacing: 0.1em;
+    }
+
+    .project-card__img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__carousel {
+    @include absolute-fill;
+    user-select: none;
+  }
+
+  &__image-wrapper {
+    @include absolute-fill;
+
+    &.next .project-card__img {
+      animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &.prev .project-card__img {
+      animation: slideInLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  // Overlay MUY sutil por defecto - esta es la clave
+  &__overlay {
+    @include absolute-fill;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+    transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-lg;
+    color: $color-secondary;
+    z-index: 5;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.expanded {
+      padding: $spacing-xl;
+    }
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.15em;
+    color: $color-primary;
+    background: rgba($color-primary, 0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: $spacing-xs;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($color-primary, 0.3);
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+    @include responsive("md") {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__location {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: $spacing-xs;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(0.5rem);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  // Mostrar detalles cuando está expandido
+  &.expanded {
+    .project-card__category,
+    .project-card__location {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 100px;
+    }
+  }
+}
+
+// Botón de info
+.info-btn {
+  position: absolute;
+  top: $spacing-md;
+  left: $spacing-md;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  }
+}
+
+// Botones de control del carrusel
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  &.left {
+    left: $spacing-sm;
+  }
+
+  &.right {
+    right: $spacing-sm;
+  }
+
+  &.pause {
+    top: $spacing-md;
+    right: $spacing-md;
+    transform: none;
+    width: 36px;
+    height: 36px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  }
+}
+
+// Contador de imágenes - más minimalista
+.carousel-counter {
+  position: absolute;
+  bottom: 60px;
+  right: $spacing-md;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: $font-weight-semibold;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+// Indicadores sutiles
+.carousel-indicators {
+  position: absolute;
+  bottom: $spacing-md;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.indicator {
+  width: 32px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    height: 4px;
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.indicator-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.indicator-bar {
+  height: 100%;
+  background: $color-primary;
+  animation: progressBar 4s linear forwards;
+  box-shadow: 0 0 8px rgba($color-primary, 0.6);
+}
+
+// Modal para detalles expandidos
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.modal-close {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.modal-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.modal-info {
+  padding: $spacing-xl;
+  color: white;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: $font-weight-semibold;
+    margin: 0 0 $spacing-md 0;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: $spacing-sm 0;
+  }
+
+  .category-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.15em;
+    color: $color-primary;
+    background: rgba($color-primary, 0.15);
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-top: $spacing-md;
+    border: 1px solid rgba($color-primary, 0.3);
+  }
+}
+
+// Animaciones
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .project-card {
+    border-radius: 16px;
+
+    &__content {
+      padding: $spacing-md;
+    }
+
+    &__title {
+      font-size: 1rem;
+    }
+
+    &__location {
+      font-size: 0.85rem;
+    }
+  }
+
+  .info-btn {
+    width: 34px;
+    height: 34px;
+    top: $spacing-sm;
+    left: $spacing-sm;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+
+    &.left {
+      left: $spacing-xs;
+    }
+
+    &.right {
+      right: $spacing-xs;
+    }
+
+    &.pause {
+      width: 34px;
+      height: 34px;
+      top: $spacing-sm;
+      right: $spacing-sm;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .carousel-counter {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    bottom: 50px;
+  }
+
+  .carousel-indicators {
+    bottom: $spacing-sm;
+    gap: 4px;
+    padding: 4px 8px;
+  }
+
+  .indicator {
+    width: 24px;
+  }
+
+  .modal-overlay {
+    padding: $spacing-md;
+  }
+
+  .modal-image {
+    height: 300px;
+  }
+
+  .modal-info {
+    padding: $spacing-lg;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+}

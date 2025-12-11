@@ -1,0 +1,323 @@
+.about {
+  padding: $spacing-3xl 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+    align-items: start;
+    max-width: 75rem;
+    margin: 0 auto;
+
+    @include responsive("lg") {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: $font-weight-light;
+    letter-spacing: 0.05em;
+    color: #1a1a2e;
+    margin-bottom: $spacing-md;
+
+    @include responsive("md") {
+      font-size: 3.5rem;
+    }
+
+    &-bold {
+      font-weight: $font-weight-bold;
+      color: #0f3460;
+    }
+  }
+
+  &__gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__image-container {
+    flex: 1;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__nav-button {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  &__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #0f3460;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      background: rgba(15, 52, 96, 0.3);
+    }
+
+    &--active {
+      background: #0f3460;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+  }
+
+  &__thumbnail {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    border: 3px solid transparent;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &--active {
+      opacity: 1;
+      border: 3px solid #0f3460;
+      transform: scale(1.05);
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    font-weight: $font-weight-regular;
+    color: #4a4a4a;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  &__values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
+
+    @include responsive("md") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__value-item {
+    background: white;
+    padding: $spacing-lg;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #0f3460;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(15, 52, 96, 0.15);
+    }
+  }
+
+  &__value-icon {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__value-title {
+    font-size: 1.125rem;
+    font-weight: $font-weight-semibold;
+    color: #1a1a2e;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__value-text {
+    font-size: 0.9375rem;
+    color: #6c757d;
+    line-height: 1.5;
+  }
+
+  &__credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 2px solid #dee2e6;
+  }
+
+  &__credential {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    &-icon {
+      font-size: 1.5rem;
+    }
+
+    &-text {
+      font-size: 0.9375rem;
+      font-weight: $font-weight-semibold;
+      color: #495057;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(255,255,255,0.05)" d="M 0,100 Q 50,50 100,100 T 200,100 L 200,200 L 0,200 Z"/></svg>')
+        no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__contact-card {
+    background: white;
+    padding: $spacing-xl;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    border-top: 4px solid #0f3460;
+  }
+
+  &__contact-title {
+    font-size: 1.5rem;
+    font-weight: $font-weight-semibold;
+    color: #1a1a2e;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__contact-text {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__contact-btn {
+    width: 100%;
+    padding: $spacing-md $spacing-xl;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.0625rem;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(15, 52, 96, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Responsive adjustments
+@include responsive("sm-down") {
+  .about {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__value-item {
+      padding: $spacing-md;
+    }
+
+    &__contact-card {
+      padding: $spacing-lg;
+    }
+  }
+}
