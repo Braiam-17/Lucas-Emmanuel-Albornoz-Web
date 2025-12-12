@@ -6,7 +6,7 @@ import derechoFmaliar from "../assets/derechoFmailiar.jpg";
 import estatuaLey from "../assets/estatuaLey.jpg";
 
 const Services: React.FC = () => {
-  const whatsappNumber = "5492664XXXXXX";
+  const whatsappNumber = "2657678455";
 
   const services: Service[] = [
     {
