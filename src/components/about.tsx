@@ -6,7 +6,7 @@ const About: React.FC = () => {
   const images = [
     `${import.meta.env.BASE_URL}Lucas perfil/lucas5.jpg`,
     `${import.meta.env.BASE_URL}Lucas perfil/lucas2.jpg`,
-    `${import.meta.env.BASE_URL}Lucas perfil/lucas5.jpg`,
+    `${import.meta.env.BASE_URL}Lucas perfil/lucas4.jpg`,
     `${import.meta.env.BASE_URL}Lucas perfil/lucas1.jpg`,
   ];
 
@@ -28,53 +28,40 @@ const About: React.FC = () => {
             </h2>
 
             <p className="about__text">
-              Soy Lucas Emmanuel Albornóz, abogado especializado en derecho
-              civil, comercial y familia, comprometido con la defensa de los
-              derechos de mis clientes y la búsqueda de soluciones jurídicas
-              efectivas.
+              Soy Albornoz Lucas Emmanuel, abogado, con amplia trayectoria
+              profesional en derecho civil, comercial, laboral y familia.
+              Experiencia, compromiso y seriedad ante sus conflictos de derecho.
+              Matriculado el 29 de julio de 2009, he dedicado mi tiempo y
+              esfuerzo a capacitarme para resolver de manera ágil y eficiente
+              conflictos de derecho, realizando un trato personalizado a cada
+              cliente, en donde su caso recibe la atención y dedicación que
+              merece.
             </p>
 
             <p className="about__text">
-              Mi práctica profesional se caracteriza por un enfoque
-              personalizado, donde cada caso recibe la atención y dedicación que
-              merece. Combino experiencia jurídica con un trato cercano y
-              humano, entendiendo que detrás de cada expediente hay personas con
-              necesidades reales.
+              De este modo combino experiencia jurídica con un trato cercano y
+              humano, entendiendo que detras de un conflicto hay personas con
+              necesidades reales. En mi trayectoria profesional he tomado
+              participación activa en las instituciones que representan a los
+              abogados en nuestra ciudad, ocupando en dos periodos cargos dentro
+              de la Comisión Directiva del Colegio de Abogados de Villa
+              Mercedes:
             </p>
 
             <div className="about__values">
               <div className="about__value-item">
-                <h3 className="about__value-title">Ética Profesional</h3>
-                <p className="about__value-text">
-                  Transparencia y honestidad en cada gestión
-                </p>
+                <h3 className="about__value-title">
+                  Vocal Comisión Directiva Colegio de Abogados y Procuradores de
+                  Villa Mercedes{" "}
+                </h3>
+                <p className="about__value-text">(2017-2019)</p>
               </div>
               <div className="about__value-item">
-                <h3 className="about__value-title">Compromiso</h3>
-                <p className="about__value-text">
-                  Dedicación total a la defensa de tus intereses
-                </p>
-              </div>
-              <div className="about__value-item">
-                <h3 className="about__value-title">Experiencia</h3>
-                <p className="about__value-text">
-                  Amplio conocimiento en diversas áreas del derecho
-                </p>
-              </div>
-            </div>
-
-            <div className="about__credentials">
-              <div className="about__credential">
-                <span className="about__credential-icon">🎓</span>
-                <span className="about__credential-text">
-                  Matrícula Profesional Activa
-                </span>
-              </div>
-              <div className="about__credential">
-                <span className="about__credential-icon">📜</span>
-                <span className="about__credential-text">
-                  Titulo en Derecho
-                </span>
+                <h3 className="about__value-title">
+                  Secretario Comisión Directiva Colegio de Abogados y
+                  Procuradores de Villa Mercedes{" "}
+                </h3>
+                <p className="about__value-text">(2019-2021)</p>
               </div>
             </div>
           </div>
@@ -92,7 +79,7 @@ const About: React.FC = () => {
               <div className="about__image-container">
                 <img
                   src={images[currentImage]}
-                  alt={`Lucas Emmanuel Albornóz ${currentImage + 1}`}
+                  alt={`Albornoz Lucas Emmanuel ${currentImage + 1}`}
                   className="about__image"
                 />
               </div>
@@ -132,6 +119,36 @@ const About: React.FC = () => {
                 />
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Credenciales FUERA del grid */}
+        <div className="about__credentials">
+          <div className="about__credential">
+            <span className="about__credential-icon">📜</span>
+            <span className="about__credential-text">
+              Matrícula profesional Provincial 1312 CAVM
+            </span>
+          </div>
+          <div className="about__credential">
+            <span className="about__credential-icon">📜</span>
+            <span className="about__credential-text">
+              Matrícula profesional Federal Tomo 126, Folio 446
+            </span>
+          </div>
+          <div className="about__credential">
+            <span className="about__credential-icon">🎓</span>
+            <span className="about__credential-text">
+              Procurador, Universidad Nacional de Lomas de Zamora, obtenido el
+              14 de julio de 2007
+            </span>
+          </div>
+          <div className="about__credential">
+            <span className="about__credential-icon">🎓</span>
+            <span className="about__credential-text">
+              Abogado, Universidad Nacional de Lomas de Zamora, obtenido el 04
+              de Abril de 2009.
+            </span>
           </div>
         </div>
       </div>

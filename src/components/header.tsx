@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     { id: "proyectos", label: "Info" },
     { id: "sobre-mi", label: "Sobre Mi" },
     { id: "contacto", label: "Contacto" },
+    { id: "testimonios", label: "Reseñas" },
   ];
 
   const scrollToSection = (sectionId: string): void => {
@@ -59,9 +60,12 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       <header className={`header ${scrollY > 50 ? "header--scrolled" : ""}`}>
         <nav className="header__nav container">
           <div className="header__logo">
-            <div className="header__logo-icon">LA</div>
+            <div className="header__logo-icon">
+              <img src={`${import.meta.env.BASE_URL}logorb.png`} alt="Logo" />
+            </div>
+
             <div className="header__logo-text">
-              <span className="header__logo-name">Lucas Emmanuel Albornóz</span>
+              <span className="header__logo-name">Albornoz Lucas Emmanuel</span>
               <span className="header__logo-title">Abogado</span>
             </div>
           </div>

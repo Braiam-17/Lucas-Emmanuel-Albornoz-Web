@@ -95,6 +95,11 @@
       &:hover {
         transform: translateX(0.25rem);
       }
+
+      // Contenedor flexible para dirección con mapa
+      & > div {
+        flex: 1;
+      }
     }
 
     &-icon {
@@ -121,6 +126,62 @@
       font-weight: $font-weight-light;
       color: $color-text-light;
       line-height: 1.6;
+    }
+  }
+
+  // Estilos para el mapa de Google
+  &__map {
+    width: 100%;
+    height: 12rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    border: 1px solid $color-gray-medium;
+    margin-top: $spacing-sm;
+
+    @include responsive("md") {
+      height: 14rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  }
+
+  // Estilos para los horarios de atención
+  &__schedule {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      gap: $spacing-md;
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      font-weight: $font-weight-light;
+      color: $color-text-light;
+
+      &--closed {
+        padding-top: $spacing-sm;
+        border-top: 1px solid $color-gray-medium;
+        margin-top: $spacing-xs;
+
+        span {
+          font-weight: $font-weight-semibold;
+        }
+      }
+    }
+
+    &-day {
+      flex-shrink: 0;
+    }
+
+    &-time {
+      text-align: right;
     }
   }
 

@@ -5,6 +5,7 @@ import {
   Mail,
   MapPin,
   Phone,
+  Clock,
 } from "lucide-react";
 import type { FormErrors, FormData } from "../types";
 import { useState } from "react";
@@ -80,6 +81,7 @@ const Contact: React.FC = () => {
         <div className="contact__grid">
           <div className="contact__info">
             <div className="contact__info-items">
+              {/* Dirección con mapa */}
               <div className="contact__info-item">
                 <MapPin size={24} className="contact__info-icon" />
                 <div>
@@ -89,9 +91,67 @@ const Contact: React.FC = () => {
                     <br />
                     Villa Mercedes, San Luis, Argentina
                   </p>
+
+                  {/* Mini mapa de Google Maps */}
+                  <div className="contact__map">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3360.8!2d-65.4597!3d-33.6755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2ddc6b0e0e0e1%3A0x1234567890!2sLavalle%2097%2C%20Villa%20Mercedes%2C%20San%20Luis!5e0!3m2!1ses!2sar!4v1234567890"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Ubicación del estudio jurídico"
+                    />
+                  </div>
                 </div>
               </div>
 
+              {/* Horarios de atención */}
+              <div className="contact__info-item">
+                <Clock size={24} className="contact__info-icon" />
+                <div>
+                  <h3 className="contact__info-title">HORARIOS DE ATENCIÓN</h3>
+                  <div className="contact__schedule">
+                    <div className="contact__schedule-row">
+                      <span className="contact__schedule-day">Lunes:</span>
+                      <span className="contact__schedule-time">
+                        08:00 - 13:00 / 19:00 - 21:00
+                      </span>
+                    </div>
+                    <div className="contact__schedule-row">
+                      <span className="contact__schedule-day">Martes:</span>
+                      <span className="contact__schedule-time">
+                        08:00 - 13:00
+                      </span>
+                    </div>
+                    <div className="contact__schedule-row">
+                      <span className="contact__schedule-day">Miércoles:</span>
+                      <span className="contact__schedule-time">
+                        08:00 - 13:00
+                      </span>
+                    </div>
+                    <div className="contact__schedule-row">
+                      <span className="contact__schedule-day">Jueves:</span>
+                      <span className="contact__schedule-time">
+                        08:00 - 13:00 / 19:00 - 21:00
+                      </span>
+                    </div>
+                    <div className="contact__schedule-row">
+                      <span className="contact__schedule-day">Viernes:</span>
+                      <span className="contact__schedule-time">
+                        08:00 - 13:00
+                      </span>
+                    </div>
+                    <div className="contact__schedule-row contact__schedule-row--closed">
+                      <span className="contact__schedule-day">
+                        Sábado y Domingo:
+                      </span>
+                      <span className="contact__schedule-time">Cerrado</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Teléfono */}
               <div className="contact__info-item">
                 <Phone size={24} className="contact__info-icon" />
                 <div>
@@ -100,6 +160,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
+              {/* Email */}
               <div className="contact__info-item">
                 <Mail size={24} className="contact__info-icon" />
                 <div>
@@ -109,6 +170,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Redes sociales */}
             <div className="contact__social">
               <h3 className="contact__social-title">REDES SOCIALES</h3>
               <div className="contact__social-icons">
@@ -145,6 +207,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
+          {/* Formulario */}
           <div className="contact__form-wrapper">
             {submitted && (
               <div className="contact__success">
@@ -209,7 +272,7 @@ const Contact: React.FC = () => {
                   className={`contact__textarea ${
                     errors.mensaje ? "contact__input--error" : ""
                   }`}
-                  placeholder="Cuéntanos sobre tu proyecto..."
+                  placeholder="Cuéntanos sobre tu consulta..."
                 />
                 {errors.mensaje && (
                   <p className="contact__error">{errors.mensaje}</p>

@@ -1,7 +1,11 @@
 .about {
-  padding: $spacing-3xl 0;
+  padding: $spacing-3xl $spacing-md;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
+
+  @include responsive("md") {
+    padding: $spacing-3xl 0;
+  }
 
   &::before {
     content: "";
@@ -159,6 +163,29 @@
     color: #4a4a4a;
     line-height: 1.8;
     text-align: justify;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #0f3460 0%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    &:hover {
+      padding-left: 1.25rem;
+
+      &::before {
+        opacity: 1;
+      }
+    }
   }
 
   &__values {
@@ -168,7 +195,7 @@
     margin-top: $spacing-lg;
 
     @include responsive("md") {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -196,6 +223,18 @@
     font-weight: $font-weight-semibold;
     color: #1a1a2e;
     margin-bottom: $spacing-xs;
+    position: relative;
+    padding-bottom: $spacing-xs;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #0f3460 0%, transparent 100%);
+    }
   }
 
   &__value-text {
@@ -205,31 +244,68 @@
   }
 
   &__credentials {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: $spacing-md;
-    margin-top: $spacing-lg;
+    margin-top: $spacing-2xl;
     padding-top: $spacing-lg;
     border-top: 2px solid #dee2e6;
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include responsive("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include responsive("lg") {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &__credential {
     display: flex;
     align-items: center;
     gap: $spacing-sm;
-    padding: $spacing-sm $spacing-md;
+    padding: $spacing-md;
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(15, 52, 96, 0.15);
+
+      &::before {
+        transform: scaleY(1);
+      }
+    }
 
     &-icon {
       font-size: 1.5rem;
+      flex-shrink: 0;
     }
 
     &-text {
       font-size: 0.9375rem;
       font-weight: $font-weight-semibold;
       color: #495057;
+      line-height: 1.4;
     }
   }
 
@@ -238,25 +314,6 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
-  }
-
-  &__image {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
-
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(255,255,255,0.05)" d="M 0,100 Q 50,50 100,100 T 200,100 L 200,200 L 0,200 Z"/></svg>')
-        no-repeat;
-      background-size: cover;
-    }
   }
 
   &__contact-card {

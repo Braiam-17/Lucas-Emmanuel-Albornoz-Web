@@ -7,6 +7,7 @@ import Footer from "./components/footer";
 import Contact from "./components/contact";
 import CarouselCard from "./components/projets";
 import WhatsAppFloatingButton from "./components/whatsappFloatButton";
+import Testimonials from "./components/testimonials";
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("inicio");
@@ -21,6 +22,7 @@ const App: React.FC = () => {
       <Services />
       <CarouselCard />
       <About />
+      <Testimonials />
       <Contact />
       <Footer />
       <WhatsAppFloatingButton />

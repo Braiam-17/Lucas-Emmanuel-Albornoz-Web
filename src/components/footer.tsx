@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
         <div className="footer__content">
           <div className="footer__brand">
             <div className="footer__logo">
-              Lucas Emmanuel Albornóz{" "}
+              Albornoz Lucas Emmanuel{" "}
               <span className="footer__logo-bold">ABOGADO</span>
             </div>
             <p className="footer__tagline">Confianza y Experiencia</p>

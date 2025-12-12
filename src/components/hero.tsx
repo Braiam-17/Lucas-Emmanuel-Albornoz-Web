@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
         <h1 className="hero__title">
           Estudio Jurídico
           <br />
-          <span className="hero__title-highlight">
+          <span className="hero__title">
             Asesoramiento y Representación Legal
           </span>
         </h1>

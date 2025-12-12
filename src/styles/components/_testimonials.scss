@@ -1,0 +1,477 @@
+.testimonials {
+  padding: $spacing-3xl $spacing-md;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+
+  @include responsive("md") {
+    padding: $spacing-3xl 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: $font-weight-light;
+    letter-spacing: 0.05em;
+    color: #1a1a2e;
+    margin-bottom: $spacing-sm;
+
+    @include responsive("md") {
+      font-size: 3.5rem;
+    }
+
+    &-bold {
+      font-weight: $font-weight-bold;
+      color: #0f3460;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    color: #6c757d;
+    font-weight: $font-weight-regular;
+  }
+
+  &__carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @include responsive("sm-down") {
+      gap: 0.5rem;
+    }
+  }
+
+  &__track {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  &__slides {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__slide {
+    min-width: 100%;
+    padding: 0 $spacing-sm;
+
+    @include responsive("md") {
+      padding: 0 $spacing-md;
+    }
+  }
+
+  &__card {
+    background: white;
+    padding: $spacing-xl;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+
+    @include responsive("md") {
+      padding: $spacing-2xl;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(15, 52, 96, 0.15);
+    }
+  }
+
+  &__quote-icon {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 5rem;
+    color: #0f3460;
+    opacity: 0.1;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: $spacing-md;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__star {
+    font-size: 1.5rem;
+    color: #dee2e6;
+    transition: all 0.3s ease;
+
+    &--filled {
+      color: #ffc107;
+      text-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    }
+  }
+
+  &__comment {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #495057;
+    margin-bottom: $spacing-xl;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+    min-height: 60px;
+
+    &--default {
+      opacity: 0.7;
+      font-style: normal;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: $font-weight-bold;
+    flex-shrink: 0;
+  }
+
+  &__author-info {
+    flex: 1;
+  }
+
+  &__author-name {
+    font-size: 1.125rem;
+    font-weight: $font-weight-semibold;
+    color: #1a1a2e;
+    margin-bottom: 0.25rem;
+  }
+
+  &__date {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+
+  &__google {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding-top: $spacing-md;
+    border-top: 1px solid #e9ecef;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__google-icon {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(
+      135deg,
+      #4285f4 0%,
+      #34a853 25%,
+      #fbbc05 50%,
+      #ea4335 100%
+    );
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $font-weight-bold;
+    font-size: 0.875rem;
+  }
+
+  &__google-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+
+  &__nav {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 2;
+
+    @include responsive("sm-down") {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background: white;
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(15, 52, 96, 0.2);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: $spacing-xl;
+  }
+
+  &__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #0f3460;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      background: rgba(15, 52, 96, 0.3);
+    }
+
+    &--active {
+      background: #0f3460;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__cta {
+    text-align: center;
+    margin-top: $spacing-2xl;
+    padding-top: $spacing-xl;
+    border-top: 1px solid #e9ecef;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__cta-text {
+    font-size: 1.125rem;
+    color: #495057;
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-regular;
+  }
+
+  &__cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #1a1a2e;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: $font-weight-semibold;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    border: 2px solid #0f3460;
+    box-shadow: 0 2px 8px rgba(15, 52, 96, 0.1);
+
+    svg {
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background: #0f3460;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(15, 52, 96, 0.2);
+
+      svg path {
+        fill: white;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// ---------------------------
+//  RESPONSIVE STYLES
+// ---------------------------
+
+// SECTION SPACING
+@include responsive("md") {
+  .testimonials {
+    padding: $spacing-3xl 0;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .testimonials {
+    padding: $spacing-xl 0;
+  }
+}
+
+// TITLES
+.testimonials__title {
+  font-size: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+}
+
+.testimonials__subtitle {
+  @media (max-width: $breakpoint-md) {
+    font-size: 1rem;
+    padding: 0 $spacing-sm;
+  }
+}
+
+// CAROUSEL WRAPPER
+.testimonials__carousel {
+  @media (max-width: $breakpoint-md) {
+    gap: 0.5rem;
+  }
+}
+
+// NAV BUTTONS (prev/next)
+.testimonials__nav {
+  @media (max-width: $breakpoint-md) {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  &--prev {
+    @media (max-width: $breakpoint-sm) {
+      left: 5px;
+    }
+  }
+
+  &--next {
+    @media (max-width: $breakpoint-sm) {
+      right: 5px;
+    }
+  }
+}
+
+// SLIDES
+.testimonials__slide {
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $spacing-xs;
+  }
+}
+
+// CARD
+.testimonials__card {
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+    border-radius: 12px;
+  }
+}
+
+// COMMENT TEXT
+.testimonials__comment {
+  @media (max-width: $breakpoint-md) {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+// AUTHOR INFO
+.testimonials__author {
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-xs;
+  }
+}
+
+.testimonials__avatar {
+  @media (max-width: $breakpoint-md) {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+}
+
+// INDICATORS (dots)
+.testimonials__indicator {
+  @media (max-width: $breakpoint-md) {
+    width: 10px;
+    height: 10px;
+  }
+
+  &--active {
+    @media (max-width: $breakpoint-md) {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+// CTA BOX
+.testimonials__cta {
+  @media (max-width: $breakpoint-md) {
+    padding-top: $spacing-lg;
+    margin-top: $spacing-xl;
+  }
+}
+
+.testimonials__cta-text {
+  @media (max-width: $breakpoint-md) {
+    font-size: 1rem;
+  }
+}
+
+.testimonials__cta-button {
+  @media (max-width: $breakpoint-md) {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
